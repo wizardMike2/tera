@@ -1,0 +1,5 @@
+BOT_TOKEN = 6442599880:AAH13m0Xyd6wS6eZsp-Ktbp2GQXsl7WDpPk
+OWNER_ID = 5205248957
+DUMP_CHAT_ID = -1002269345174
+MONGO_URI = mongodb+srv://deepujallad:Ankityadav7@cluster0.anjrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+PORT = 8000
