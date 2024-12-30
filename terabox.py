@@ -6,6 +6,11 @@ from time import time
 from flask import Flask, jsonify
 from threading import Thread
 import pymongo
+from os import getenv
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # DB Connetion
