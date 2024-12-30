@@ -8,7 +8,7 @@ from threading import Thread
 import pymongo
 
 # DB Connetion
-mongo_client = pymongo.MongoClient("mongodb+srv://deepujallad:Ankityadav7@cluster0.anjrk.mongodb.net/?retryWrites=true&w=majority&")
+mongo_client = pymongo.MongoClient(os.getenv('MONGO_URI'))
 db = mongo_client['powerful_web_scraping_tool_bot']
 users_collection = db['users']
 banned_users_collection = db['banned_users']
