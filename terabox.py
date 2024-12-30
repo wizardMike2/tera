@@ -8,14 +8,14 @@ from threading import Thread
 import pymongo
 
 # DB Connetion
-mongo_client = pymongo.MongoClient(os.getenv('MONGO_URI'))
+mongo_client = pymongo.MongoClient("mongodb+srv://deepujallad:Ankityadav7@cluster0.anjrk.mongodb.net/?retryWrites=true&w=majority&")
 db = mongo_client['powerful_web_scraping_tool_bot']
 users_collection = db['users']
 banned_users_collection = db['banned_users']
 print('DB Connected')
 
 # Bot Connetion
-bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
+bot = telebot.TeleBot("6442599880:AAH13m0Xyd6wS6eZsp-Ktbp2GQXsl7WDpPk")
 print(f"@{bot.get_me().username} Connected")
 print("\n╭─── [ LOG ]")
 app = Flask(__name__)
@@ -146,7 +146,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['ban'])
 def ban_user(message):
     bot.send_chat_action(message.chat.id, 'typing')
-    if str(message.from_user.id) != os.getenv('OWNER_ID'):
+    if str(message.from_user.id) != "5205248957":
         bot.reply_to(message, "ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴜᴛʜᴏʀɪꜱᴇᴅ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ")
         return
 
@@ -167,7 +167,7 @@ def ban_user(message):
 @bot.message_handler(commands=['unban'])
 def unban_user(message):
     bot.send_chat_action(message.chat.id, 'typing')
-    if str(message.from_user.id) != os.getenv('OWNER_ID'):
+    if str(message.from_user.id) != "5205248957":
         bot.reply_to(message, "ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴜᴛʜᴏʀɪꜱᴇᴅ ᴛᴏ ᴜꜱᴇ ᴛʜɪꜱ ᴄᴏᴍᴍᴀɴᴅ")
         return
 
@@ -188,7 +188,7 @@ def unban_user(message):
 @bot.message_handler(commands=['broadcast'])
 def broadcast_message(message):
     bot.send_chat_action(message.chat.id, 'typing')
-    if str(message.from_user.id) != os.getenv('OWNER_ID'):
+    if str(message.from_user.id) != 5205248957:
         bot.reply_to(message, "You are not authorized to use this command.")
         return
     bot.reply_to(message, 'ᴘʀᴏᴠɪᴅᴇ ᴀ ᴍᴇꜱꜱᴀɢᴇ / ᴍᴇᴅɪᴀ ᴛᴏ ʙʀᴏᴀᴅᴄᴀꜱᴛ', reply_markup=telebot.types.ForceReply(selective=True))
@@ -290,8 +290,8 @@ def handle_message(message):
 
             video_size_mb = video_size / (1024 * 1024)
 
-            dump_channel_video = bot.send_video(os.getenv('DUMP_CHAT_ID'), open(video_path, 'rb'), caption=f"📂 {video_title}\n📦 {video_size_mb:.2f} MB\n🪪 𝐔𝐬𝐞𝐫 𝐁𝐲 : {user_mention}\n♂️ 𝐔𝐬𝐞𝐫 𝐋𝐢𝐧𝐤: tg://user?id={user_id}", parse_mode='HTML')
-            bot.copy_message(chat_id, os.getenv('DUMP_CHAT_ID'), dump_channel_video.message_id)
+            dump_channel_video = bot.send_video(-1002269345174, open(video_path, 'rb'), caption=f"📂 {video_title}\n📦 {video_size_mb:.2f} MB\n🪪 𝐔𝐬𝐞𝐫 𝐁𝐲 : {user_mention}\n♂️ 𝐔𝐬𝐞𝐫 𝐋𝐢𝐧𝐤: tg://user?id={user_id}", parse_mode='HTML')
+            bot.copy_message(chat_id, -1002269345174, dump_channel_video.message_id)
 
 
             bot.send_sticker(chat_id, "CAACAgIAAxkBAAEM0yZm6Xz0hczRb-S5YkRIck7cjvQyNQACCh0AAsGoIEkIjTf-YvDReDYE")
