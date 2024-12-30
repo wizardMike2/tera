@@ -1,12 +1,11 @@
 import os
+import re
 import requests
-import time
+import telebot
+from time import time
 from flask import Flask, jsonify
 from threading import Thread
-from pymongo import MongoClient
-from telegram import Bot, Update, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
-
+import pymongo
 # Define all required variables here
 BOT_TOKEN = "6442599880:AAH13m0Xyd6wS6eZsp-Ktbp2GQXsl7WDpPk"
 MONGO_URI = "mongodb+srv://deepujallad:Ankityadav7@cluster0.anjrk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
